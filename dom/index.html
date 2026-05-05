@@ -3,17 +3,114 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ejemplo DOM</title>
+  <title>Ejemplo DOM Avanzado</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #f5f5f5;
+    }
+
+    .contenedor {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .dark-mode {
+      background: #1b1f2b;
+      color: #e5e7eb;
+    }
+
+    .dark-mode button {
+      background: #374151;
+      color: #e5e7eb;
+    }
+
+    button {
+      cursor: pointer;
+      margin: 5px 0;
+      padding: 10px 14px;
+      border: none;
+      border-radius: 6px;
+      background: #2563eb;
+      color: white;
+      font-size: 14px;
+    }
+
+    .boton-secundario {
+      background: #6b7280;
+    }
+
+    input[type="text"] {
+      width: calc(100% - 24px);
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 6px;
+      border: 1px solid #d1d5db;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #eef2ff;
+      margin-bottom: 8px;
+      padding: 10px;
+      border-radius: 6px;
+    }
+
+    li button {
+      background: #dc2626;
+    }
+
+    .estado {
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 6px;
+      background: #e0f2fe;
+      color: #0369a1;
+    }
+  </style>
 </head>
 <body>
-  <h1 id="titulo">Ejemplo DOM</h1>
-  <p id="descripcion">Haz clic en el botón para cambiar el contenido.</p>
-  <button id="boton">Presióname</button>
+  <div class="contenedor" id="app">
+    <h1 id="titulo">Administrador de tareas</h1>
+    <p id="descripcion">Escribe una tarea y guárdala en el navegador.</p>
 
-  <ul id="lista">
-    <li>Elemento 1</li>
-    <li>Elemento 2</li>
-  </ul>
+    <form id="formulario">
+      <input id="entradaTarea" type="text" placeholder="Escribe una nueva tarea" />
+      <button type="submit">Agregar tarea</button>
+    </form>
+
+    <ul id="lista-tareas"></ul>
+
+    <div>
+      <button id="guardar-local" class="boton-secundario">Guardar en localStorage</button>
+      <button id="cargar-local" class="boton-secundario">Cargar desde localStorage</button>
+      <button id="borrar-local" class="boton-secundario">Borrar localStorage</button>
+    </div>
+
+    <div>
+      <button id="guardar-sesion" class="boton-secundario">Guardar en sessionStorage</button>
+      <button id="cargar-sesion" class="boton-secundario">Cargar desde sessionStorage</button>
+      <button id="borrar-sesion" class="boton-secundario">Borrar sessionStorage</button>
+    </div>
+
+    <div>
+      <button id="toggle-tema" class="boton-secundario">Cambiar tema</button>
+    </div>
+
+    <div class="estado" id="estado">Cargando tareas...</div>
+  </div>
 
   <script src="ejemplo_dom.js"></script>
 </body>

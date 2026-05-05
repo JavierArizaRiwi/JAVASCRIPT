@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cliente de servidor</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background: #f9fafb; }
+    .container { max-width: 760px; margin: 0 auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+    button { margin: 5px 5px 10px 0; padding: 10px 14px; border: none; border-radius: 6px; background: #2563eb; color: white; cursor: pointer; }
+    input { width: calc(100% - 24px); padding: 10px; margin-bottom: 10px; border-radius: 6px; border: 1px solid #d1d5db; }
+    pre { background: #111827; color: #f8fafc; padding: 15px; border-radius: 8px; overflow-x: auto; }
+    fieldset { margin-bottom: 16px; border: 1px solid #d1d5db; border-radius: 8px; padding: 14px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Cliente de servidor</h1>
+    <p>Este cliente utiliza <strong>fetch</strong> para consumir el servidor Node.js.</p>
+
+    <fieldset>
+      <legend>Obtener datos</legend>
+      <button id="btnUsuarios">Cargar usuarios</button>
+      <button id="btnTareas">Cargar tareas</button>
+    </fieldset>
+
+    <fieldset>
+      <legend>Crear nuevo usuario</legend>
+      <input id="usuarioNombre" type="text" placeholder="Nombre" />
+      <input id="usuarioCiudad" type="text" placeholder="Ciudad" />
+      <button id="btnCrearUsuario">Enviar usuario</button>
+    </fieldset>
+
+    <fieldset>
+      <legend>Crear nueva tarea</legend>
+      <input id="tareaTitulo" type="text" placeholder="Título de la tarea" />
+      <button id="btnCrearTarea">Enviar tarea</button>
+    </fieldset>
+
+    <h2>Respuesta</h2>
+    <pre id="salida">Aquí aparecerán los resultados de la API.</pre>
+  </div>
+
+  <script src="cliente.js"></script>
+</body>
+</html>
