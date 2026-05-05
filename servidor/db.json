@@ -1,0 +1,11 @@
+{
+  "usuarios": [
+    { "id": 1, "nombre": "Ana", "ciudad": "Madrid" },
+    { "id": 2, "nombre": "Luis", "ciudad": "Mexico" },
+    { "id": 3, "nombre": "Marta", "ciudad": "Lima" }
+  ],
+  "tareas": [
+    { "id": 1, "titulo": "Aprender JavaScript", "completada": false },
+    { "id": 2, "titulo": "Crear servidor", "completada": true }
+  ]
+}
