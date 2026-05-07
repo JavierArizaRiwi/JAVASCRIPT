@@ -3,12 +3,22 @@
 
   Explica los métodos más usados de JavaScript para arreglos, cadenas y objetos.
   También muestra cómo comparar valores correctamente.
+
+  Cómo ejecutar:
+    cd fundamentos
+    node ejemplo_metodos.js
+
+  Salida esperada:
+    - Muestra diferentes operaciones con arreglos.
+    - Muestra métodos de cadenas.
+    - Muestra operaciones con objetos.
 */
 
 console.log("--- EJEMPLO MÉTODOS DE JAVASCRIPT ---");
 
 // ======== MÉTODOS DE ARREGLOS ========
 const frutas = ["Manzana", "Banana"]; 
+const verduras = ["Lechuga", "Tomate"];
 console.log("Arreglo original:", frutas);
 
 // push agrega un elemento al final del arreglo.
@@ -36,7 +46,7 @@ console.log("Índice de Banana:", frutas.indexOf("Banana"));
 console.log("¿Contiene 'Manzana'?", frutas.includes("Manzana"));
 
 // concat une arreglos sin modificar los originales.
-const masFrutas = frutas.concat(["Durazno", "Pera"]);
+const masFrutas = frutas.concat(verduras);
 console.log("Concat resultados:", masFrutas);
 
 // join convierte un arreglo en una cadena usando un separador.

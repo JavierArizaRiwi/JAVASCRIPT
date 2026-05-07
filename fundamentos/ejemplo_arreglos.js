@@ -3,6 +3,16 @@
 
   Muestra operaciones útiles de arreglos: map, filter y reduce.
   Estos son métodos muy usados en JavaScript moderno.
+
+  Cómo ejecutar:
+    cd fundamentos
+    node ejemplo_arreglos.js
+
+  Salida esperada:
+    - Arreglo original.
+    - Arreglo con valores dobles.
+    - Arreglo con valores pares.
+    - Suma total de los números.
 */
 
 console.log("--- EJEMPLO ARREGLOS ---");

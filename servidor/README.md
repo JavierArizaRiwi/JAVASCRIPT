@@ -1,15 +1,15 @@
 # Carpeta servidor
 
-Esta carpeta contiene ejemplos de servidor en JavaScript y una base de datos para JSON Server.
+Esta carpeta contiene ejemplos para aprender a crear y consumir una API con JavaScript.
 
-## Ejemplo con Node.js
+## Contenido
 
-Archivo: `ejemplo_server.js`
+- `ejemplo_server.js`: servidor básico en Node.js con rutas `GET` y `POST`.
+- `cliente.html`: cliente web que consume la API usando `fetch`.
+- `cliente.js`: código del cliente que muestra y crea usuarios y tareas.
+- `db.json`: datos de ejemplo que puedes usar con JSON Server.
 
-- Usa el módulo `http` de Node para crear un servidor.
-- Controla rutas GET y POST.
-- Permite agregar usuarios y tareas mediante JSON.
-- Incluye soporte para CORS, lo que permite que un cliente web haga peticiones desde otro origen.
+## Servidor Node.js
 
 ### Cómo ejecutar
 
@@ -25,25 +25,18 @@ node ejemplo_server.js
 - `POST /api/usuarios`
 - `POST /api/tareas`
 
-### Ejemplo de POST con curl
+### Probar el cliente web
 
-```bash
-curl -X POST http://localhost:3000/api/usuarios \
-  -H "Content-Type: application/json" \
-  -d '{"nombre":"Carlos","ciudad":"Bogotá"}'
-```
+Después de iniciar el servidor, abre `servidor/cliente.html` en el navegador y prueba las opciones:
 
-```bash
-curl -X POST http://localhost:3000/api/tareas \
-  -H "Content-Type: application/json" \
-  -d '{"titulo":"Crear UI","completada":false}'
-```
+- Cargar usuarios
+- Cargar tareas
+- Crear un usuario
+- Crear una tarea
 
 ## Ejemplo con JSON Server
 
-Archivo de datos: `db.json`
-
-JSON Server crea una API REST automáticamente a partir de este archivo.
+Si quieres practicar una API REST sin escribir el servidor, usa `db.json` con JSON Server.
 
 ### Instalación
 
@@ -71,4 +64,5 @@ json-server --watch db.json --port 3001
 - `PUT /tareas/1`
 - `DELETE /tareas/1`
 
-JSON Server es ideal para practicar APIs REST sin tener que crear una base de datos real.
+JSON Server es útil para practicar APIs REST sin configurar bases de datos complejas.
+

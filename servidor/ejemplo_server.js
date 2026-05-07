@@ -1,8 +1,22 @@
 /*
   ejemplo_server.js
 
-  Servidor HTTP más completo en Node.js.
-  Maneja GET/POST, CORS y rutas JSON para usuarios y tareas.
+  Servidor HTTP completo en Node.js para aprender a crear una API básica.
+  - Responde rutas GET y POST.
+  - Permite leer JSON desde el cuerpo de la petición.
+  - Incluye soporte CORS para que un navegador pueda consumir la API.
+
+  Cómo ejecutar:
+    cd servidor
+    node ejemplo_server.js
+
+  Luego abre `servidor/cliente.html` en el navegador o usa curl para probar las rutas.
+
+  Rutas disponibles:
+    GET  /api/usuarios
+    GET  /api/tareas
+    POST /api/usuarios
+    POST /api/tareas
 */
 
 const http = require("http");
@@ -28,11 +42,13 @@ const HEADERS = {
 };
 
 function enviarJSON(res, status, data) {
+  // Envía una respuesta JSON con los encabezados apropiados.
   res.writeHead(status, HEADERS);
   res.end(JSON.stringify(data));
 }
 
 function leerBody(req) {
+  // Lee el cuerpo de la petición HTTP y devuelve un objeto JSON.
   return new Promise((resolve) => {
     const decoder = new StringDecoder("utf-8");
     let body = "";
@@ -53,22 +69,26 @@ const server = http.createServer(async (req, res) => {
   const pathname = url.pathname;
 
   if (req.method === "OPTIONS") {
+    // Respuesta para las preflight requests de CORS.
     res.writeHead(204, HEADERS);
     res.end();
     return;
   }
 
   if (req.method === "GET" && pathname === "/api/usuarios") {
+    // Devuelve la lista de usuarios en formato JSON.
     enviarJSON(res, 200, usuarios);
     return;
   }
 
   if (req.method === "GET" && pathname === "/api/tareas") {
+    // Devuelve la lista de tareas en formato JSON.
     enviarJSON(res, 200, tareas);
     return;
   }
 
   if (req.method === "POST" && pathname === "/api/usuarios") {
+    // Crea un nuevo usuario a partir del cuerpo JSON.
     const datos = await leerBody(req);
     const nuevoUsuario = {
       id: usuarios.length + 1,
@@ -81,6 +101,7 @@ const server = http.createServer(async (req, res) => {
   }
 
   if (req.method === "POST" && pathname === "/api/tareas") {
+    // Crea una nueva tarea a partir del cuerpo JSON.
     const datos = await leerBody(req);
     const nuevaTarea = {
       id: tareas.length + 1,
@@ -92,6 +113,7 @@ const server = http.createServer(async (req, res) => {
     return;
   }
 
+  // Ruta no encontrada: devolvemos un error 404.
   enviarJSON(res, 404, { mensaje: "Ruta no encontrada" });
 });
 

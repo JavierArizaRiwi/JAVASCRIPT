@@ -1,39 +1,60 @@
 # Ejemplos de JavaScript para aprender paso a paso
 
-Esta carpeta contiene ejemplos básicos y avanzados de JavaScript, con comentarios en español para ayudar a quien está aprendiendo.
+Este repositorio es una colección de ejemplos pensados para quienes están comenzando con JavaScript. Las carpetas están organizadas por temas y cada ejemplo incluye comentarios orientados a la lectura y la práctica.
 
-## Archivos incluidos
+## Estructura del repositorio
 
-- `index.js`: calculadora simple con entrada por consola.
-- `ejemplo_if.js`: usa `if`, `else if` y `else`.
-- `ejemplo_switch.js`: usa `switch` con `case` y `default`.
-- `ejemplo_for.js`: bucle `for` con `break` y `continue`.
-- `ejemplo_while.js`: bucle `while`.
-- `ejemplo_foreach.js`: recorre un arreglo con `forEach`.
-- `ejemplo_funciones.js`: muestra funciones tradicionales, anónimas y arrow functions.
-- `ejemplo_objetos.js`: trabaja con objetos, propiedades y métodos.
-- `ejemplo_arreglos.js`: usa `map`, `filter`, `reduce` e `includes`.
-- `ejemplo_metodos.js`: muestra métodos comunes de arreglos, cadenas, objetos y comparaciones.
-- `ejemplo_tipos_parseos.js`: tipos de datos, parseos y conversiones entre valores.
-- `ejemplo_trycatch.js`: manejo de errores con `try`, `catch` y `finally`.
-- `ejemplo_async_await.js`: ejemplo de código asíncrono con `Promise` y `async/await`.
-- `ejemplo_clases.js`: explica clases y objetos con la sintaxis moderna.
+- `fundamentos/`: ejemplos básicos de JavaScript, control de flujo, funciones, objetos, arreglos, errores y programación asíncrona.
+- `algoritmos/`: ejemplos de búsqueda y ordenamiento con explicaciones sencillas.
+- `dom/`: un ejemplo práctico de manipulación del DOM en el navegador, con localStorage, sessionStorage y cambio de tema.
+- `servidor/`: un ejemplo de servidor en Node.js, un cliente web y un archivo de datos `db.json` para practicar APIs.
 
-## Cómo ejecutar un ejemplo
+## Cómo usar este material
 
-Abre la terminal en esta carpeta y usa:
+### 1. Aprender con Node.js
+
+Abre la terminal en la carpeta `fundamentos` y ejecuta:
 
 ```bash
+cd fundamentos
 node ejemplo_if.js
 ```
 
-Solo cambia el nombre del archivo por el ejemplo que quieras probar.
+Cambia el nombre del archivo para probar otros ejemplos.
 
-## Recomendación de aprendizaje
+> Todos los ejemplos de JavaScript en este repositorio se ejecutan con `node <archivo>` desde la carpeta correspondiente.
 
-1. Empieza con `index.js` y `ejemplo_if.js`.
-2. Sigue con `ejemplo_for.js`, `ejemplo_while.js` y `ejemplo_switch.js`.
-3. Luego practica funciones, objetos y arreglos.
-4. Termina con `try/catch`, `async/await` y clases.
 
-¡Así tendrás una base muy sólida en JavaScript!
+### 2. Probar el ejemplo de DOM
+
+Abre el archivo `dom/index.html` en tu navegador. Este proyecto muestra cómo trabajar con el DOM, eventos y almacenamiento local.
+
+### 3. Ejecutar el servidor
+
+Abre una terminal en `servidor` y ejecuta:
+
+```bash
+cd servidor
+node ejemplo_server.js
+```
+
+Luego abre `servidor/cliente.html` en el navegador para interactuar con la API.
+
+## Guía de aprendizaje sugerida
+
+1. `fundamentos/index.js`
+2. `fundamentos/ejemplo_if.js`
+3. `fundamentos/ejemplo_for.js`, `fundamentos/ejemplo_while.js`, `fundamentos/ejemplo_switch.js`
+4. `fundamentos/ejemplo_funciones.js`, `fundamentos/ejemplo_objetos.js`, `fundamentos/ejemplo_arreglos.js`
+5. `fundamentos/ejemplo_trycatch.js`, `fundamentos/ejemplo_async_await.js`, `fundamentos/ejemplo_clases.js`
+6. `algoritmos/ejemplo_busqueda.js`, `algoritmos/ejemplo_ordenamiento.js`, `fundamentos/ejemplo_debug.js`
+7. `dom/index.html`
+8. `servidor/ejemplo_server.js` y `servidor/cliente.html`
+
+## Consejos rápidos
+
+- Lee los comentarios en cada archivo antes de ejecutar el ejemplo.
+- Modifica valores y pruebas para ver cómo cambia la salida.
+- Si usas un navegador, abre `dom/index.html` directamente o con un servidor local simple.
+
+¡Disfruta aprendiendo JavaScript!

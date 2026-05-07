@@ -3,6 +3,14 @@
 
   Muestra cómo definir y usar funciones en JavaScript.
   Incluye función tradicional, función anónima y arrow function.
+
+  Cómo ejecutar:
+    cd fundamentos
+    node ejemplo_funciones.js
+
+  Salida esperada:
+    - Suma, resta y multiplicación de números.
+    - Saludo desde una función sin parámetros.
 */
 
 console.log("--- EJEMPLO FUNCIONES ---");

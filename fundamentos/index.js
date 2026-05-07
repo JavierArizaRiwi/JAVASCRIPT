@@ -4,6 +4,16 @@
   Esta aplicación pide al usuario dos números y una operación matemática.
   Luego muestra el resultado en la consola.
   Está pensada para que la use alguien que está aprendiendo JavaScript.
+
+  Cómo ejecutar:
+    cd fundamentos
+    node index.js
+
+  Salida esperada:
+    - Se solicita el primer número.
+    - Se solicita el segundo número.
+    - Se solicita la operación (+, -, *, /).
+    - Se muestra el resultado o un mensaje de error si hay división entre cero.
 */
 
 // Importamos el módulo 'readline' para leer datos desde la consola.
@@ -18,6 +28,7 @@ const rl = readline.createInterface({
 // Esta función muestra una pregunta en pantalla y espera la respuesta del usuario.
 // Devuelve una Promise para poder usar 'await' y escribir código más legible.
 function preguntar(pregunta) {
+
   return new Promise((resolve) => {
     rl.question(pregunta, resolve);
   });
@@ -29,6 +40,7 @@ async function calculadora() {
 
   // Pedimos al usuario el primer número y lo convertimos a número decimal.
   const num1 = parseFloat(await preguntar("Ingrese el primer número: "));
+  
 
   // Pedimos el segundo número y también lo convertimos.
   const num2 = parseFloat(await preguntar("Ingrese el segundo número: "));

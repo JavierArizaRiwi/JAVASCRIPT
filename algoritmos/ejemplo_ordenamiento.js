@@ -3,6 +3,15 @@
 
   Ejemplo de algoritmos de ordenamiento básicos en JavaScript.
   Incluye bubble sort e insertion sort con explicaciones paso a paso.
+
+  Cómo ejecutar:
+    cd algoritmos
+    node ejemplo_ordenamiento.js
+
+  Salida esperada:
+    - Muestra el arreglo original.
+    - Muestra el resultado ordenado con bubble sort.
+    - Muestra el resultado ordenado con insertion sort.
 */
 
 console.log("--- EJEMPLO ORDENAMIENTO ---");

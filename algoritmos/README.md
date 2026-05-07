@@ -9,12 +9,19 @@ Esta carpeta contiene ejemplos de algoritmos básicos en JavaScript.
 
 ## Cómo ejecutar
 
-Usa la terminal dentro de `algoritmos`:
+1. Abre una terminal en la carpeta `algoritmos`.
+2. Ejecuta cada ejemplo con `node`.
 
 ```bash
+cd algoritmos
 node ejemplo_ordenamiento.js
 node ejemplo_busqueda.js
 ```
+
+### Ejemplo de salida esperada
+
+- `ejemplo_busqueda.js` mostrará la posición de un valor usando búsqueda lineal y binaria.
+- `ejemplo_ordenamiento.js` mostrará el arreglo original y los arreglos ordenados.
 
 ## Siguientes pasos
 

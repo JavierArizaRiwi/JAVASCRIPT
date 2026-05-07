@@ -3,6 +3,14 @@
 
   Ejemplo de búsqueda lineal y búsqueda binaria en JavaScript.
   La búsqueda binaria requiere un arreglo ordenado.
+
+  Cómo ejecutar:
+    cd algoritmos
+    node ejemplo_busqueda.js
+
+  Salida esperada:
+    - Muestra el arreglo ordenado.
+    - Indica la posición del valor buscado usando ambos métodos.
 */
 
 console.log("--- EJEMPLO BÚSQUEDA ---");

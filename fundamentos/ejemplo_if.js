@@ -3,6 +3,13 @@
 
   Ejemplo sencillo de cómo usar una instrucción if / else if / else.
   Esta estructura de control permite tomar decisiones según condiciones.
+
+  Cómo ejecutar:
+    cd fundamentos
+    node ejemplo_if.js
+
+  Salida esperada:
+    - Muestra si el número es positivo, negativo o cero.
 */
 
 const numero = 5;

@@ -5,6 +5,18 @@
   Incluye creación de elementos, eventos, temas y almacenamiento local/session.
 */
 
+/*
+  ejemplo_dom.js
+
+  Ejemplo práctico de manipulación del DOM en el navegador.
+  Permite crear tareas, guardarlas en localStorage/sessionStorage y cambiar el tema.
+
+  Cómo usar:
+    1. Abre `dom/index.html` en tu navegador.
+    2. Agrega tareas y prueba los botones para guardar, cargar o borrar.
+    3. Cambia el tema con el botón "Cambiar tema".
+*/
+
 const formulario = document.getElementById("formulario");
 const entradaTarea = document.getElementById("entradaTarea");
 const listaTareas = document.getElementById("lista-tareas");
