@@ -17,7 +17,8 @@ Esta carpeta contiene ejemplos básicos que te ayudan a entender la lógica prin
 - `ejemplo_tipos_parseos.js`: tipos de datos y conversión entre valores.
 - `ejemplo_trycatch.js`: manejo de errores con `try`, `catch` y `finally`.
 - `ejemplo_async_await.js`: promesas y `async/await`.
-- `ejemplo_debug.js`: ejemplo para practicar debugging con breakpoints y depurador paso a paso.
+- `ejemplo_debug.js`: ejemplo para practicar debugging con breakpoints, recursión y un carrito de compras real.
+
 
 ## Cómo ejecutar
 

@@ -1,69 +1,137 @@
 /*
   ejemplo_debug.js
 
-  Ejemplo para practicar debugging en JavaScript.
-  Este archivo contiene una función con un error intencional para que puedas practicar
-  el uso de breakpoints y el depurador paso a paso.
+  Ejemplo para practicar debugging en JavaScript con casos reales.
+  Incluye:
+    - cálculo de factorial con recursión.
+    - cálculo de total de un carrito de compras.
+    - validaciones de datos y manejo de errores.
 
   Cómo ejecutar:
     cd fundamentos
     node ejemplo_debug.js
 
-  Cómo depurar:
+  Cómo depurar en VS Code:
     1. Abre este archivo en VS Code.
-    2. Haz clic en el margen izquierdo (cerca del número de línea) para colocar breakpoints.
+    2. Coloca breakpoints en el margen izquierdo.
     3. Ejecuta con F5 o desde el menú "Run > Start Debugging".
-    4. Selecciona "Node.js" si es la primera vez.
-    5. El depurador se detendrá en los breakpoints y podrás inspeccionar variables.
+    4. Elige "Node.js" si te lo pide.
+    5. Usa F10 para avanzar línea por línea o F11 para entrar en funciones.
 
-  Salida esperada:
-    - Si no hay error, muestra el resultado de la función.
-    - Si hay error, el depurador te ayudará a encontrar dónde ocurre.
+  Qué aprenderás:
+    - cómo inspeccionar valores en cada paso.
+    - cómo ver la pila de llamadas (call stack).
+    - cómo encontrar errores en funciones recursivas y bucles.
+
+  Casos de uso ideales:
+    - cuando quieres practicar debugging de funciones recursivas.
+    - cuando necesitas ver cómo se comporta un bucle en un carrito de compras.
+    - cuando quieres aprender a validar datos y manejar errores.
+    - cuando quieres entender mejor el stack de llamadas y la inspección de variables.
 */
 
 function calcularFactorial(n) {
-  // Esta función calcula el factorial de un número.
-  // Tiene un error intencional: no maneja el caso base correctamente para n=0.
-
-  if (n === 0) {
-    return 1; // Caso base: factorial de 0 es 1.
+  // Valida que n sea un número entero.
+  if (typeof n !== "number" || !Number.isInteger(n)) {
+    throw new Error("El número debe ser un entero.");
   }
 
-  // Aquí hay un breakpoint sugerido: coloca uno aquí para ver el valor de n.
-  console.log(`Calculando factorial de ${n}`);
+  if (n < 0) {
+    throw new Error("No se puede calcular el factorial de un número negativo.");
+  }
 
-  // Llamada recursiva: n * factorial(n-1)
-  return n * calcularFactorial(n - 1);
+  // Coloca un breakpoint aquí para ver el valor de n en cada llamada.
+  console.log("Entrando en calcularFactorial", { n });
+
+  if (n === 0 || n === 1) {
+    return 1;
+  }
+
+  const resultado = n * calcularFactorial(n - 1);
+  console.log("Resultado parcial", { n, resultado });
+  return resultado;
+}
+
+function calcularTotalCarrito(carrito) {
+  // Este ejemplo simula un carrito de compras real.
+  let total = 0;
+
+  for (let i = 0; i < carrito.length; i += 1) {
+    const producto = carrito[i];
+    const precio = parseFloat(producto.precio);
+    const cantidad = Number(producto.cantidad);
+
+    // Coloca un breakpoint aquí para inspeccionar cada producto.
+    console.log("Procesando producto", { producto, precio, cantidad, total });
+
+    if (Number.isNaN(precio) || Number.isNaN(cantidad)) {
+      throw new Error(`Datos inválidos en el producto "${producto.nombre}"`);
+    }
+
+    total += precio * cantidad;
+  }
+
+  return total;
 }
 
 function main() {
-  const numero = 5; // Cambia este valor para probar diferentes casos.
-
   console.log("--- EJEMPLO DEBUGGING ---");
+
+  console.log("\n1) Ejemplo real: factorial recursivo");
+  const numero = 5;
   console.log(`Calculando factorial de ${numero}...`);
 
   try {
-    const resultado = calcularFactorial(numero);
-    console.log(`El factorial de ${numero} es: ${resultado}`);
+    const resultadoFactorial = calcularFactorial(numero);
+    console.log(`El factorial de ${numero} es: ${resultadoFactorial}`);
   } catch (error) {
-    console.log("Ocurrió un error:", error.message);
+    console.log("Error en factorial:", error.message);
   }
+
+  console.log("\n2) Ejemplo real: total de carrito de compras");
+  const carrito = [
+    { nombre: "Camiseta", precio: "15.99", cantidad: 2 },
+    { nombre: "Pantalón", precio: "28.50", cantidad: 1 },
+    { nombre: "Calcetines", precio: "5.00", cantidad: 3 }
+  ];
+
+  try {
+    const total = calcularTotalCarrito(carrito);
+    console.log("Total del carrito:", total.toFixed(2));
+  } catch (error) {
+    console.log("Error en carrito:", error.message);
+  }
+
+  console.log("\nConsejo de debugging:");
+  console.log(" - Usa breakpoints en funciones y en el bucle del carrito.");
+  console.log(" - Revisa los valores de las variables en cada iteración.");
+  console.log(" - Si quieres probar un error, cambia precio a 'abc' o cantidad a 'dos'.");
 }
 
-// Ejecutamos la función principal.
 main();
 
 /*
-  Explicación del debugging:
-  - Breakpoints: Pausan la ejecución en una línea específica para inspeccionar variables.
-  - Paso a paso: Usa F10 para avanzar línea por línea, F11 para entrar en funciones.
-  - Variables: En la pestaña "Variables" del depurador, puedes ver el valor de n, resultado, etc.
-  - Call Stack: Muestra la pila de llamadas para entender la recursión.
-  - Console: Puedes ejecutar código JavaScript en tiempo real desde la consola del depurador.
+  Explicación detallada:
+    1. calcularFactorial(n): función recursiva que multiplica n por el factorial de n-1.
+       - Verifica que n sea un número entero.
+       - Lanza un error si n es negativo o no es entero.
+       - Usa un caso base para n=0 y n=1.
+       - Cada llamada recursiva aparece en el call stack.
 
-  Prueba:
-    1. Coloca un breakpoint en la línea "console.log(`Calculando factorial de ${n}`);"
-    2. Ejecuta el programa en modo debug.
-    3. Observa cómo cambia el valor de n en cada llamada recursiva.
-    4. Si cambias numero a 0, verifica que el caso base funcione.
+    2. calcularTotalCarrito(carrito): ejemplo real de un carrito de compras.
+       - Convierte el precio a número con parseFloat.
+       - Convierte cantidad a número con Number.
+       - Valida que los datos sean correctos.
+       - Suma precio * cantidad para cada producto.
+
+    3. Debugging en VS Code:
+       - Breakpoints te permiten detener la ejecución en línea específica.
+       - Inspecta variables como n, resultado, producto, precio y cantidad.
+       - Observa la pestaña "Call Stack" para ver cómo se llaman las funciones.
+       - Usa la consola del depurador para ejecutar expresiones en tiempo real.
+
+  Ejemplos de pruebas:
+    - Cambia `numero` a 0 para verificar el caso base.
+    - Cambia `numero` a -1 para ver cómo se maneja un error.
+    - Cambia `precio` de un producto a "abc" para forzar un error de validación.
 */
