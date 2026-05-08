@@ -399,6 +399,7 @@ Las arrow functions no tienen su propio `this`. Usan el `this` del contexto dond
 const persona = {
   nombre: "Luis",
   mostrar: function () {
+    let nombre="Pedro"
     const decirNombre = () => {
       console.log(this.nombre);
     };
